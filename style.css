@@ -1,0 +1,16 @@
+img {
+  width: 100%;
+}
+
+/* mobilversion vi bruger minmax for at den vælger hvor meget plads den skal udfylde */
+#indhold {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 10px;
+  padding: 1rem;
+}
+
+article {
+  border: 2px solid orange;
+  padding: 1rem;
+}
