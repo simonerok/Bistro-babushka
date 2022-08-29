@@ -8,33 +8,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main>
-      <h1>Bistro Babushka</h1>
+    <header>
       <nav>
-        <ul class="knapper">
-          <li>
-            <a href="index.html">Alle</a>
-          </li>
-
-          <li>
-            <a href="Desserter.html">Desserter</a>
-          </li>
-
-          <li>
-            <a href="Drikkevarer.html">Drikkevarer</a>
-          </li>
-
-          <li>
-            <a href="Forretter.html">Forretter</a>
-          </li>
-
-          <li>
-            <a href="Hovedretter.html">Hovedretter</a>
-          </li>
-        </ul>
+        <h1>Bistro Babushka</h1>
+        <h2></h2>
+        <button data-kategori="alle" class="valgt">Alle</button>
+        <button data-kategori="desserter">Desserter</button>
+        <button data-kategori="drikkevarer">Drikkevarer</button>
+        <button data-kategori="forretter">Forretter</button>
+        <button data-kategori="hovedretter">Hovedretter</button>
       </nav>
-    </main>
-    <section id="indhold">
+    </header>
+    <main>
+      <section id="indhold"></section>
       <!--  template er den "container som har vores indhold den er usynlig i en browser" -->
       <template>
         <article>
@@ -49,8 +35,7 @@
           <p class="Pris"></p>
         </article>
       </template>
-    </section>
-
+    </main>
     <script src="java.js"></script>
   </body>
 </html>
