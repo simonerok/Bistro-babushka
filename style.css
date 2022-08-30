@@ -73,3 +73,30 @@ h1 {
   font-size: 4rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
+
+/* styling af popop vindu */
+#popop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(3, 3, 3, 0.702);
+  display: none;
+  justify-content: center;
+}
+
+#popop article {
+  width: 80%;
+  background-color: rgb(168, 195, 195);
+}
+
+/* style luk knap */
+#luk {
+  position: fixed;
+  padding: 1em;
+  font-size: 1.7rem;
+  font-weight: bolder;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}

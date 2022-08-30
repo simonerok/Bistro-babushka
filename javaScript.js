@@ -69,9 +69,25 @@ function visRetter() {
       klon.querySelector(".Oprindelsesregion").textContent = ret.oprindelsesregion;
       /* Her tilføjes kr efter pris via konkatinering = "+"*/
       klon.querySelector(".Pris").textContent = ret.pris + " kr.";
+      /* kalder på funktionen visEnkeltRet for at få mere info om den enkelte ret */
+      klon.querySelector("article").addEventListener("click", () => visEnkeltRet(ret));
       main.appendChild(klon);
     }
   });
+}
+
+/* for at få popoppen væk igen når man har klikket på den*/
+document.querySelector("#luk").addEventListener("click", () => (popop.style.display = "none"));
+
+function visEnkeltRet(retData) {
+  /* der skal stå det samme som efter visPerson()*/
+  console.log(visEnkeltRet);
+  const popop = document.querySelector("#popop");
+  /* style for at vise popop boksen*/
+  popop.style.display = "block";
+  popop.querySelector("img").src = "billeder/" + retData.billednavn + "-md.jpg";
+  popop.querySelector("h2").textContent = retData.billednavn;
+  popop.querySelector("p").textContent = retData.langbeskrivelse;
 }
 
 /* Dette gør at vi får vist vores hentede data i consol loggen i vores inspector i browseren. 
