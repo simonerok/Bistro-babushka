@@ -9,7 +9,8 @@ const mereinfo = {
   },
 };
 
-/* let er når vi skal kunne lave den om, const er når det er en konstant */
+/* let er når vi skal kunne lave den om, const er når det er en konstant. 
+Dette er den globale variabel. det kan ikke være en konstant fordi man ikke kan sætte alt dataen ind i den på samme tid med at man definere den */
 let retter;
 
 /* Her henter vi dataen fra databasen via fetch metoden (en JSON metode = Java Script Object Notation) */
@@ -17,7 +18,8 @@ let retter;
 async function hentData() {
   const respons = await fetch(endpoint, mereinfo);
   retter = await respons.json();
-  vis(retter);
+  console.log(retter);
+  visRetter();
 }
 
 const main = document.querySelector("#indhold");
@@ -31,29 +33,32 @@ const filterKnapper = document.querySelectorAll("nav button");
 filterKnapper.forEach((knap) => knap.addEventListener("click", filtrerknapper));
 
 function filtrerknapper() {
-  /* sætter filter = this (this står for den knap der er trykket på) ændre teksten der står inde i filteret fx alle --> Desserter alt efter hvilken knap der er trykket på. Kategori er vores data-attribut (fra html)*/
+  /* sætter filter = this (this står for den knap der er trykket på fx "alle" "desserter" osv) ændre teksten der står inde i filteret fx alle --> Desserter alt efter hvilken knap der er trykket på. Kategori er vores data-attribut (fra html)*/
   filter = this.dataset.kategori;
   /* kalder vis retter for at implementere filteret*/
+  console.log(filter);
 
   document.querySelector(".valgt").classList.remove("valgt");
   this.classList.add("valgt");
 
   /*headers tekst kontent = knaps kontent*/
   header.textContent = this.textContent;
+  /*HUSK AT KALDE FUNKTIONEN*/
+  visRetter();
 }
 
 /* For at få vist den hentede data skal vi lave et skelet i template tagget i html hvor vi via klone putter indholdet i. Template er usynligt indtil vi putter noget indhold derind fra databasen*/
-function vis(retter) {
+function visRetter() {
   console.log(retter);
-
-  /* sletter indholdet for listen så den ikke bliver ved med at loope igennem det -vores array*/
-  main.innerHTML = "";
+  /* sletter indholdet for listen så den ikke bliver ved med at loope igennem det -vores array DVS der kun kommer dem frem som vi vil have vist*/
+  main.textContent = "";
 
   /*  forEach tillader os at køre vores data i loop, altså få vist vores array X antal gnage i stedet for 1 gang*/
   /*  => er en anynym funktion også kaldet arrow function. referer til globale variabel (retter)*/
   retter.forEach((ret) => {
-    if (filter == retter.kategori || filter == "alle") {
-      console.log("kategori", retter.kategori);
+    /*  Dette er vores betingelse. == betyder at man sammenligner */
+    if (filter == "alle" || filter == ret.kategori) {
+      console.log("kategori", ret.kategori);
       const klon = template.cloneNode(true);
       klon.querySelector(".billede").src = "billeder/" + ret.billednavn + "-md.jpg";
       klon.querySelector("h2").textContent = ret.navn;
@@ -61,7 +66,7 @@ function vis(retter) {
       klon.querySelector(".Kategori").textContent = ret.kategori;
       klon.querySelector(".Kortbeskrivelse").textContent = ret.kortbeskrivelse;
       /* klon.querySelector(".Langbeskrivelse").textContent = ret.langbeskrivelse; */
-      klon.querySelector(".Oprindelsesregion").textContent = ret.Oprindelsesregion;
+      klon.querySelector(".Oprindelsesregion").textContent = ret.oprindelsesregion;
       /* Her tilføjes kr efter pris via konkatinering = "+"*/
       klon.querySelector(".Pris").textContent = ret.pris + " kr.";
       main.appendChild(klon);
