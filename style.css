@@ -17,6 +17,22 @@ h2 {
   padding: 1rem;
 }
 
+/* Styling af tekst i array */
+
+.Pris {
+  margin-top: 1rem;
+}
+
+.Billedenavn {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.Kategori {
+  font-style: italic;
+}
+
 .kategori_overskrift {
   font-family: "Permanent Marker";
 }
@@ -70,6 +86,7 @@ ul {
 article {
   border: 2px solid orange;
   padding: 1rem;
+  line-height: 30px;
 }
 
 h1 {
@@ -92,12 +109,12 @@ h1 {
 }
 
 #popop article {
-  width: 60%;
+  width: 52%;
   background-color: white;
-  padding: 4rem;
+  padding: 3rem;
   position: fixed;
-  top: 10%;
-  left: 20%;
+  top: 14%;
+  left: 23%;
 }
 
 /* style luk knap */
@@ -108,7 +125,7 @@ h1 {
   font-weight: bolder;
   color: rgb(0, 0, 0);
   cursor: pointer;
-  top: 10%;
-  left: 20%;
+  top: 12%;
+  left: 22%;
   z-index: 1;
 }
