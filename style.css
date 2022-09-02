@@ -8,6 +8,12 @@
   box-sizing: border-box;
 }
 
+main {
+  max-width: 1250px;
+  /*  Denne linje centerer alt på siden */
+  margin: 0 auto;
+}
+
 header {
   text-align: center;
 }
@@ -105,27 +111,30 @@ h1 {
   background-color: rgba(3, 3, 3, 0.702);
   display: none;
   justify-content: center;
+
   overflow: scroll;
 }
 
 #popop article {
-  width: 52%;
+  width: 55%;
+  max-width: 875px;
   background-color: white;
   padding: 3rem;
   position: fixed;
-  top: 14%;
-  left: 23%;
+  align-self: center;
+  /*  top: 14%;
+  left: 23%; */
 }
 
 /* style luk knap */
 #luk {
-  position: fixed;
-  padding: 1em;
+  position: absolute;
+  display: flex;
+  /*  padding: 1em; */
   font-size: 1.7rem;
   font-weight: bolder;
   color: rgb(0, 0, 0);
   cursor: pointer;
-  top: 12%;
-  left: 22%;
+  display: flex;
   z-index: 1;
 }

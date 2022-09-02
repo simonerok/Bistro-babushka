@@ -84,7 +84,7 @@ function visEnkeltRet(retData) {
   console.log(visEnkeltRet);
   const popop = document.querySelector("#popop");
   /* style for at vise popop boksen*/
-  popop.style.display = "block";
+  popop.style.display = "flex";
   popop.querySelector("img").src = "billeder/" + retData.billednavn + "-md.jpg";
   popop.querySelector("h2").textContent = retData.billednavn;
   popop.querySelector("p").textContent = retData.langbeskrivelse;
